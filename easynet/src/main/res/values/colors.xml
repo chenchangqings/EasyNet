@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#FFFFFF</color>
+    <color name="red">#FF5C41</color>
+    <color name="transparent">#00000000</color>
+    <color name="transparent_half">#2e000000</color>
+    <color name="distance">#FF777777</color>
+    <color name="gray">#f2f2f2</color>
+    <color name="dark_gray">#DDDDDD</color>
+    <color name="dark_gray2">#887B77</color>
+    <color name="edit_select">#404040</color>
+    <color name="edit_unselect">#DBDBDB</color>
+    <color name="black">#000000</color>
+    <color name="blue">#FF0090FF</color>
+    <color name="txtColor">#FF404040</color>
+    <color name="edit_txt_hint">#B3B3B3</color>
+    <color name="bg_btn_enter">#FF5C41</color>
+    <color name="bg_btn_gray">#FFDBDBDB</color>
+    <color name="text_gray">#FF777777</color>
+    <color name="login_agreement_normal">#B3B3B3</color>
+    <color name="main_time">#0090FF</color>
+    <color name="main_money">#FF5C41</color>
+    <color name="line_background">#B3B3B3</color>
+    <color name="delete_red">#FFFF0030</color>
+    <color name="coupon_discount">#FFFFB022</color>
+    <color name="coupon_cash">#FFFF0030</color>
+    <color name="no_coupon">#FFFF5C41</color>
+    <color name="green">#00AA88</color>
+
+
+    <!-- 检索  start -->
+    <color name="search_transparent">#ceffffff</color>
+    <!-- 检索  end-->
+
+    <color name="cp_colorAccent">#F3F3F3</color>
+    <color name="cp_colorPrimary">@color/cp_colorAccent</color>
+    <color name="cp_colorPrimaryDark">@color/cp_colorAccent</color>
+
+    <color name="cp_divider">#E5E5E5</color>
+    <color name="cp_shadow">#AAEBEBEB</color>
+    <color name="cp_common_bg">#FAFAFA</color>
+    <color name="cp_content_bg">@color/cp_colorAccent</color>
+    <color name="cp_gray">#8c8c8c</color>
+    <color name="cp_gray_deep">#5c5c5c</color>
+    <color name="cp_alpha_gray">#CC646464</color>
+    <color name="cp_theme_gray">#646464</color>
+
+    <!--行程详情-->
+    <color name="distance_detail_state_gray">#B3B3B3</color>
+    <color name="distance_detail_state_red">#FF5C41</color>
+    <color name="distance_detail_state_green">#00AA88</color>
+</resources>
