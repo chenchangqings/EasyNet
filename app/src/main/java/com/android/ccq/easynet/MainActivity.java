@@ -9,6 +9,7 @@ import com.lzy.okgo.model.HttpParams;
 
 public class MainActivity extends AppCompatActivity {
     private HttpParams httpParams = new HttpParams();
+    private int s;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
