@@ -1,5 +1,7 @@
 package com.android.ccq.easynet.callback;
 
+import com.lzy.okgo.model.Response;
+
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
@@ -11,9 +13,7 @@ import java.lang.reflect.Type;
  * Version :     V1.1.1
  */
 
-public abstract class ModelCallback<T> extends BaseNetCallback<T> {
-
-
+public abstract class ModelCallback<T> extends BaseNetCallback {
     /**
      * 获取Model的type，用以解析数据
      * @return ，Model的Class
@@ -23,4 +23,5 @@ public abstract class ModelCallback<T> extends BaseNetCallback<T> {
         Type[] params = ((ParameterizedType) genType).getActualTypeArguments();
         return (Class<T>) params[0];
     }
+
 }

@@ -1,7 +1,8 @@
 package com.android.ccq.easynet.callback;
 
 
-import com.android.ccq.easynet.ErrorResponse;
+import com.android.ccq.easynet.response.ErrorResponse;
+import com.android.ccq.easynet.response.SuccessResponse;
 
 /**
  * Description : 网络请求基础回调接口
@@ -12,9 +13,9 @@ import com.android.ccq.easynet.ErrorResponse;
  */
 
 public interface BaseCallback<T> {
-    void onStart();
-    void onSuccess(T result);
+    void onStart(com.lzy.okgo.request.base.Request<String, ? extends com.lzy.okgo.request.base.Request> request);
+    void onSuccess(SuccessResponse result);
     void onError(ErrorResponse errorResponse);
     void onFinish();
-    void onNetworkDisconnected();
+    boolean onNetworkDisconnected();
 }

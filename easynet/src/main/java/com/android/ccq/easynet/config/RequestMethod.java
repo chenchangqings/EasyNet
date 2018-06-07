@@ -1,4 +1,4 @@
-package com.android.ccq.easynet;
+package com.android.ccq.easynet.config;
 
 /**
  * Created by Chenchangqing on 2017/12/14.
