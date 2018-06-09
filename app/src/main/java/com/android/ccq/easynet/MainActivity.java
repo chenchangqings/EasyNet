@@ -11,6 +11,7 @@ import com.android.ccq.easynet.api.BaseRequset;
 import com.android.ccq.easynet.api.TestApi;
 import com.android.ccq.easynet.callbcak.IRequestCallBack;
 import com.android.ccq.easynet.config.RequsetCode;
+import com.android.ccq.easynet.config.UrlConfig;
 import com.android.ccq.easynet.reponse.DogBean;
 import com.android.ccq.easynet.response.ErrorResponse;
 import com.android.ccq.easynet.response.SuccessResponse;
@@ -45,7 +46,20 @@ public class MainActivity extends BaseActivity implements IRequestCallBack {
 //        param.setHot(99);
 //        param.setSkin("蓝色");
         BaseRequset.build().create(TestApi.class).getVideo(null,this);
+
     }
+
+    IRequestCallBack iRequestCallBack = new IRequestCallBack() {
+        @Override
+        public void onSuccess(int code, Object object, SuccessResponse response) {
+
+        }
+
+        @Override
+        public void onError(ErrorResponse response) {
+
+        }
+    };
 
 
 

@@ -14,9 +14,16 @@ import com.android.ccq.easynet.response.SuccessResponse;
 import com.android.ccq.easynet.utils.Recover;
 
 public class BaseRequset implements IMethod {
-
+    private Recover recover;
     public static BaseRequset build() {
         return new BaseRequset();
+    }
+
+
+    //根据类动态创建实例
+    public <T> T create(final Class<T> service,Recover recover){
+        this.recover = recover;
+        return  create(service);
     }
 
     //根据类动态创建实例
@@ -33,6 +40,9 @@ public class BaseRequset implements IMethod {
 
     @Override
     public void doMethod(int code, String url, Object params, Class<?> cls,Object callback) {
+        if (recover != null) {
+            recover.addTag(code);
+        }
         requestModel(code, genUrl(url), params,null,cls,(IRequestCallBack) callback);
     }
 

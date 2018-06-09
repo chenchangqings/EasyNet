@@ -4,7 +4,9 @@ import com.android.ccq.easynet.callback.IMethod;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Proxy;
+import java.lang.reflect.Type;
 
 public class EasyNetFactory {
 
@@ -23,7 +25,5 @@ public class EasyNetFactory {
                     }
                 });
     }
-
-
 
 }
