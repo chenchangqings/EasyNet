@@ -1,6 +1,8 @@
 package com.android.ccq.easynet.api;
 
+import com.android.ccq.easynet.EasyNetFactory;
 import com.android.ccq.easynet.OkGoClient;
+import com.android.ccq.easynet.callback.IMethod;
 import com.android.ccq.easynet.callback.ModelCallback;
 import com.android.ccq.easynet.callbcak.IRequestCallBack;
 import com.android.ccq.easynet.config.RequestMethod;
@@ -11,10 +13,37 @@ import com.android.ccq.easynet.response.ErrorResponse;
 import com.android.ccq.easynet.response.SuccessResponse;
 import com.android.ccq.easynet.utils.Recover;
 
-public class BaseApi {
+public class BaseRequset implements IMethod {
+
+    public static BaseRequset build() {
+        return new BaseRequset();
+    }
+
+    //根据类动态创建实例
+    public <T> T create(final Class<T> service){
+        try {
+            return new EasyNetFactory().create(service,this);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public void doMethod(int code, String url, Object params, Class<?> cls,Object callback) {
+        requestModel(code, genUrl(url), params,null,cls,(IRequestCallBack) callback);
+    }
+
+    private String genUrl(String path) {
+        if (path.startsWith("http")) return path;
+        return UrlConfig.SERVER_DEBUG_BASE_URL + path;
+    }
 
 
-    protected void requestModel(int tag, String path, Object params, Recover recover, Class<?> cls, final IRequestCallBack callback){
+    //发起请求
+    public void requestModel(int tag, String path, Object params, Recover recover, Class<?> cls, final IRequestCallBack callback){
         if(null != recover){
             recover.addTag(tag);
         }
@@ -37,31 +66,7 @@ public class BaseApi {
             public void onError(ErrorResponse errorResponse) {
                 callback.onError(errorResponse);
             }
-
-
         });
     }
-
-
-
-
-
-    /**
-     * 设置网络请求地址，当传入path以“http”开头，则直接返回path，否则将主机地址与path拼接返回
-     *
-     * @param path，传入路径
-     * @return 设置完成的请求地址
-     */
-    protected String genUrl(String path) {
-        if (path.startsWith("http")) return path;
-        return UrlConfig.SERVER_DEBUG_BASE_URL + path;
-    }
-
-
-
-
-
-
-
 
 }
