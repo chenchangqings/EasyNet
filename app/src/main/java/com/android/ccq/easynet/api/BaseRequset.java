@@ -43,7 +43,7 @@ public class BaseRequset implements IMethod {
         if (recover != null) {
             recover.addTag(code);
         }
-        requestModel(code, genUrl(url), params,null,cls,(IRequestCallBack) callback);
+            requestModel(code, genUrl(url), params,null,cls,(IRequestCallBack) callback);
     }
 
     private String genUrl(String path) {
