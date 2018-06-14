@@ -121,17 +121,23 @@ public class HttpRequest implements IBaseRequest{
     }
 
 
+    //解析错误结果
     private String getResult(Response<String> response){
-        if(null !=response.getRawResponse() && null != response.getRawResponse().body()){
+        String result = null;
+        if(null != response.getRawResponse() && null != response.getRawResponse().body()){
             try {
-                return response.getRawResponse().body().string();
+                result = response.getRawResponse().body().string();
             } catch (IOException e) {
                 e.printStackTrace();
-                return response.getException().getMessage();
             }
-        }else{
-            return response.getException().getMessage();
+        }else if(null != response.getException()){
+            result = response.getException().getMessage();
         }
+
+        if(null == result || result.length() == 0){
+            result = "未知错误";
+        }
+        return result;
     }
 
 }

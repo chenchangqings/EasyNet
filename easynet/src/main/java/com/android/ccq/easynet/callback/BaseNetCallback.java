@@ -68,7 +68,7 @@ public abstract class BaseNetCallback<T> implements BaseCallback<T>{
         switch (code){
             case Error_Code_Base:
                 reason = "请求异常:" + error;
-                onError(new ErrorResponse(Error_Code_Base,reason));
+                onError(new ErrorResponse(Error_Code_Base,reason,error));
                 break;
             case Error_Code_Net:
                 reason = "网络异常，请稍后再试";

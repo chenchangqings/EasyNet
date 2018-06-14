@@ -11,10 +11,17 @@ package com.android.ccq.easynet.response;
 public class ErrorResponse {
     private int errorCode;
     private String errorMsg;
+    private String json;
 
     public ErrorResponse(int errorCode, String errorMsg) {
         this.errorCode = errorCode;
         this.errorMsg = errorMsg;
+    }
+
+    public ErrorResponse(int errorCode, String errorMsg,String json) {
+        this.errorCode = errorCode;
+        this.errorMsg = errorMsg;
+        this.json = json;
     }
 
     public int getErrorCode() {
@@ -23,5 +30,9 @@ public class ErrorResponse {
 
     public String getErrorMsg() {
         return errorMsg;
+    }
+
+    public void setJson(String json) {
+        this.json = json;
     }
 }
