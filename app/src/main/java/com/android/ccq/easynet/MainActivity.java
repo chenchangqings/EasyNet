@@ -17,6 +17,8 @@ import com.android.ccq.easynet.response.ErrorResponse;
 import com.android.ccq.easynet.response.SuccessResponse;
 import com.lzy.okgo.model.HttpParams;
 
+import java.util.List;
+
 public class MainActivity extends BaseActivity implements IRequestCallBack {
     private Button btnClick;
     private TextView textView;
@@ -36,9 +38,6 @@ public class MainActivity extends BaseActivity implements IRequestCallBack {
         });
     }
 
-    private void Test(){
-        Toast.makeText(this,"测试",Toast.LENGTH_SHORT).show();
-    }
 
     //第一种请求方式：json作为参数
     private void getJson(){
@@ -49,41 +48,19 @@ public class MainActivity extends BaseActivity implements IRequestCallBack {
 
     }
 
-    IRequestCallBack iRequestCallBack = new IRequestCallBack() {
-        @Override
-        public void onSuccess(int code, Object object, SuccessResponse response) {
-
-        }
-
-        @Override
-        public void onError(ErrorResponse response) {
-
-        }
-    };
 
 
 
-
-    //第二种请求方式：HttpParams作为参数:适合简单请求
-    private void getParams(){
-        HttpParams param = new HttpParams();
-        param.put("type",2);
-        param.put("limit",10);
-        param.put("offset",0);
-//        VideoApi.build().getVideoList(param,recover,this);
-    }
 
 
 
     @Override
     public void onSuccess(int code, Object object, SuccessResponse response) {
         if(code == RequsetCode.request_getVideo){
-            DogBean info = (DogBean)object;
-            Toast.makeText(this,response.getJson(),Toast.LENGTH_SHORT).show();
-            textView.setText(response.getJson());
+            List<DogBean> info = (List<DogBean> )object;
+            Toast.makeText(this,info.get(0).getTitle(),Toast.LENGTH_SHORT).show();
+            textView.setText(info.get(0).getTitle());
         }
-
-
     }
 
     @Override

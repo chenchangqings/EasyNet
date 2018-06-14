@@ -67,7 +67,7 @@ public class BaseRequset implements IMethod {
             public void onSuccess(SuccessResponse response) {
                 BaseBean bResponse = (BaseBean) response.getEntity();
                 if (bResponse.code == ResponseCode.SUCCESS) {
-                    callback.onSuccess(response.getReCode(), bResponse, response);
+                    callback.onSuccess(response.getReCode(), bResponse.getData(), response);
                 }else {
                     callback.onError(new ErrorResponse(-1,""));
                 }

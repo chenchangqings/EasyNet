@@ -39,7 +39,7 @@ public class GsonSerializer {
     }
     
 
-    public <T> T fromJsonT(String json, Class<T> cls) {
+    public <T> Object fromJsonT(String json, Class<T> cls) {
         return mGson.fromJson(json, cls);
     }
 

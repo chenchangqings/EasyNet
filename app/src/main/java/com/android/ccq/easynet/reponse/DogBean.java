@@ -6,29 +6,17 @@ import java.util.List;
  * Created by stories on 2018/1/27.
  */
 
-public class DogBean extends BaseBean {
-
-
-    private List<DataBean> data;
-
-    public List<DataBean> getData() {
-        return data;
-    }
-
-    public void setData(List<DataBean> data) {
-        this.data = data;
-    }
-
-    public static class DataBean {
+public class DogBean  extends BaseBean<DogBean>{
         /**
          * id : 1
          * skin : hhh
          * hot : 999
          */
 
-        private int id;
-        private String skin;
-        private int hot;
+        public int id;
+        public String title;
+        public String cover;
+        public String url;
 
         public int getId() {
             return id;
@@ -38,20 +26,28 @@ public class DogBean extends BaseBean {
             this.id = id;
         }
 
-        public String getSkin() {
-            return skin;
+        public String getTitle() {
+            return title;
         }
 
-        public void setSkin(String skin) {
-            this.skin = skin;
+        public void setTitle(String title) {
+            this.title = title;
         }
 
-        public int getHot() {
-            return hot;
+        public String getCover() {
+            return cover;
         }
 
-        public void setHot(int hot) {
-            this.hot = hot;
+        public void setCover(String cover) {
+            this.cover = cover;
         }
-    }
+
+        public String getUrl() {
+            return url;
+        }
+
+        public void setUrl(String url) {
+            this.url = url;
+        }
+
 }
