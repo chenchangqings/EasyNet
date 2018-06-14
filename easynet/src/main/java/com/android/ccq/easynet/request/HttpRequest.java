@@ -13,6 +13,8 @@ import com.lzy.okgo.callback.Callback;
 import com.lzy.okgo.model.HttpParams;
 import com.lzy.okgo.model.Response;
 
+import java.io.IOException;
+
 import static com.android.ccq.easynet.config.NetConstants.Error_Code_Analysis;
 import static com.android.ccq.easynet.config.NetConstants.Error_Code_Base;
 import static com.android.ccq.easynet.config.NetConstants.Error_Code_Null;
@@ -71,7 +73,7 @@ public class HttpRequest implements IBaseRequest{
             @Override
             public void onError(Response<String> response) {
                 super.onError(response);
-                callback.doFailed(tag,Error_Code_Base,response.getException().getMessage());
+                callback.doFailed(tag,Error_Code_Base,getResult(response));
                 // TODO: 2017/10/18  : 请求失败
             }
 
@@ -82,6 +84,9 @@ public class HttpRequest implements IBaseRequest{
             }
         });
     }
+
+
+
 
 
 
@@ -113,6 +118,20 @@ public class HttpRequest implements IBaseRequest{
                   .upJson(json)
                   .execute(callback);
       }
+    }
+
+
+    private String getResult(Response<String> response){
+        if(null !=response.getRawResponse() && null != response.getRawResponse().body()){
+            try {
+                return response.getRawResponse().body().string();
+            } catch (IOException e) {
+                e.printStackTrace();
+                return response.getException().getMessage();
+            }
+        }else{
+            return response.getException().getMessage();
+        }
     }
 
 }
