@@ -15,4 +15,6 @@ public interface TestApi {
     @DoRequst(code=10002,url=UrlConfig.URL_VIDEOS)
     DogBean getDogs(Object param,IRequestCallBack callBack);
 
+
+
 }
