@@ -13,6 +13,7 @@ import com.android.ccq.easynet.callbcak.IRequestCallBack;
 import com.android.ccq.easynet.config.RequsetCode;
 import com.android.ccq.easynet.config.UrlConfig;
 import com.android.ccq.easynet.reponse.DogBean;
+import com.android.ccq.easynet.request.DogParam;
 import com.android.ccq.easynet.response.ErrorResponse;
 import com.android.ccq.easynet.response.SuccessResponse;
 import com.lzy.okgo.model.HttpParams;
@@ -41,7 +42,7 @@ public class MainActivity extends BaseActivity implements IRequestCallBack {
 
     //第一种请求方式：json作为参数
     private void getJson(){
-//        DogParam param = new DogParam();
+        DogParam param = new DogParam();
 //        param.setHot(99);
 //        param.setSkin("蓝色");
         BaseRequset.build().create(TestApi.class).getVideo(null,this);
